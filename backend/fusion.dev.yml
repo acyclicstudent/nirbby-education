@@ -1,0 +1,6 @@
+Project:
+  Name: nedu
+  Region: us-west-2
+  Stage: dev
+  AWSProfile: nirbby
+  DeploymentBucket: nedu-deployment-bucket
