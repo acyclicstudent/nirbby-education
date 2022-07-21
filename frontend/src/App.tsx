@@ -6,7 +6,7 @@ import Home from './routes/Home';
 import Auth from './routes/Auth';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <Switch>
       {
