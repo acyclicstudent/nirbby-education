@@ -1,6 +1,7 @@
 type Query{
     retrieveSubjectCatalogs: [Subject]
     retrieveStudents: [Student]
+    retrieveSubjectCollaborators: [SubjectCollaborator]
 }
 type Mutation{
 
@@ -21,4 +22,10 @@ type Student{
     name: String
     email: String
 
+}
+type SubjectCollaborator{
+    subjectId: ID
+    collaborator: ID
+    lastColabDate: Date
+    name: String
 }
