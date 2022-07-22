@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function AuthForm() {
     const [isLogin, setIsLogin] = useState(true);
 

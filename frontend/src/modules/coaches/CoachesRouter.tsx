@@ -1,3 +1,4 @@
+import { Route, Switch } from "react-router-dom";
 import Auth from "../shared/routes/Auth";
 import AuthForm from "./components/forms/AuthForm";
 
