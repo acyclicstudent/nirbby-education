@@ -1,0 +1,60 @@
+.app-component-home{
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    align-items: center;
+
+    .app-content-container{
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        width: 100%;
+        .app-component-buttons{
+            display: flex;
+            flex-direction:column;
+            width: 100%;
+            flex: 1;
+            font-family: 'Rubik', sans-serif;
+            font-size: 30px;
+            align-items: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            margin-left: 30px;
+            margin-top: 30px;
+            .app-component-link1, .app-component-link2, .app-component-link3{
+                border: 1px;
+                align-items: center;
+                display: flex; //afuerzas para centrar
+                justify-content: center;
+                height: 300px;
+                border-radius: 10px;
+                gap: 10px;
+            }
+            .app-component-link1{
+                background-color: #8FC79A;
+                color: white;
+            }
+            .app-component-link2{
+                background-color: #0073B3;
+                color: white;
+            }
+            .app-component-link3{
+                width: 200%;
+                background-color: #FF5F5A;
+                color: white;
+                display:flex;
+                justify-content: center;
+            }  
+        }
+
+        .app-component-progress{
+            display: flex;
+            flex-direction:column;
+            width: 100%;
+            flex: 1;
+            height: 100%;
+        }
+    }
+}

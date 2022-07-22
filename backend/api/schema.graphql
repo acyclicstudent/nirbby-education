@@ -1,0 +1,24 @@
+type Query{
+    retrieveSubjectCatalogs: [Subject]
+    retrieveStudents: [Student]
+}
+type Mutation{
+
+}
+#####################################
+## Type Definitions
+#####################################
+type Subject{
+    id: ID
+    name: String
+    color: HexColor
+    textColor: HexColor
+}
+type Student{
+    id: ID
+    parent: ID
+    institution: ID
+    name: String
+    email: String
+
+}
