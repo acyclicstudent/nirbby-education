@@ -1,5 +1,10 @@
 
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import ReactDOM from 'react-dom'
+
+
 
 export interface LoginProps {
     toggleForm: () => void;
@@ -21,6 +26,11 @@ export default function LoginForm(props: LoginProps) {
     return(
         <div>
             <h1>Login</h1>
+            <FontAwesomeIcon icon={faCoffee} />
+            <FontAwesomeIcon icon={['fab', 'apple']} />
+            <FontAwesomeIcon icon={['fab', 'microsoft']} />
+            <FontAwesomeIcon icon={['fab', 'google']} />
+            <FontAwesomeIcon icon="check-square" />
         </div>
     )
 }
