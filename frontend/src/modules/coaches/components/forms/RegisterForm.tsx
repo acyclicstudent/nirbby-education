@@ -21,7 +21,7 @@ export default function RegisterForm(props: RegisterProps){
     
     return(
         <div>
-            <h1>Register</h1>
+            <h1>Register Coaches</h1>
         </div>
     )
 }
