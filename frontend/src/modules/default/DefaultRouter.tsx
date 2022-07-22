@@ -5,7 +5,7 @@ import AuthForm from "./components/forms/AuthForm";
 import Home from "./routes/Home";
 
 export default function DefaultRouter() {
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
         <Switch>
             {
