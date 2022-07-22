@@ -1,12 +1,15 @@
+import "./sass/Auth.scss"
+
 export interface AuthProps {
     type: 'institutes' | 'coaches' | 'default';
     AuthForm: any;
 }
 
 export default function Auth(props: AuthProps) {
-    return(
+    return (
         <div className="app-auth">
-            <div>
+            {/* Parte izquierda */}
+            <div className="left">
                 {/* Logo */}
                 <div className="logo-container">
                     <p className="logo">Nedu</p>
@@ -18,27 +21,26 @@ export default function Auth(props: AuthProps) {
                         ) : null
                     }
                 </div>
-                {/* Texto */}
-                <div>
-                    <h1>{AUTH_TITLES[props.type]}</h1>
-                    <hr />
-                    <p>{AUTH_TEXTS[props.type]}</p>
-                </div>
+                <h1>{AUTH_TITLES[props.type]}</h1>
+                <hr />
+                <p>{AUTH_TEXTS[props.type]}</p>
             </div>
             {/* Div de login */}
-            <props.AuthForm />
+            <div className="right">
+                <props.AuthForm />
+            </div>
         </div>
     )
 }
 
 const AUTH_TITLES = {
-    'coaches': 'TITULO 1',
-    'institutes': 'TITULO 2',
-    'default': 'TITULO 3'
+    'coaches': 'CERTIFICATE Y APOYA',
+    'institutes': 'MANTEN EL CONTROL',
+    'default': 'APRENDE Y MEJORA'
 }
 
 const AUTH_TEXTS = {
-    'coaches': 'TEXTO 1',
-    'institutes': 'TEXTO 2',
-    'default': 'TEXTO 3'
+    'coaches': 'Accede a materiales y cursos de certificacion, capacitate y apoya a quienes mas lo necesitan ',
+    'institutes': 'Con Nedu for institutes puedes decidir que planes de estudio, cursos, profesores y tutores son los indicados para tu institucion educativa',
+    'default': 'Con Nedu puedes acceder a recursos didacticos, ejercicios, evaluaciones y tutores certificados que te ayudaran personalmente'
 }

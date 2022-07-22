@@ -2,16 +2,16 @@ import { useState } from "react";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 
-export default function AuthForm() {
+export default function AuthForm(){
     const [isLogin, setIsLogin] = useState(true);
-    const toggleForm = () =>setIsLogin(!isLogin);
+
     return (
-        <div className="coaches-components-forms-authform">
+        <div className="app-components-forms-authform">
             {
                 isLogin ? (
-                    <LoginForm toggleForm={toggleForm}/>
+                    <LoginForm />
                 ) : (
-                    <RegisterForm toggleForm={toggleForm}  />
+                    <RegisterForm />
                 )
             }
         </div>

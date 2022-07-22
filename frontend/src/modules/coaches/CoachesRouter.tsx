@@ -1,14 +1,33 @@
+import { useState } from "react";
+import { Route, Switch } from "react-router-dom";
 import Auth from "../shared/routes/Auth";
 import AuthForm from "./components/forms/AuthForm";
+import Home from "./routes/Home";
 
 export default function CoachesRouter() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
         <Switch>
-            <Route 
-              exact 
-              path="/app" 
-              render={() =>  <Auth type="coaches" AuthForm={AuthForm} />} 
-            />
+            {
+                isLoggedIn ? (
+                    <>
+                        <Route 
+                            exact 
+                            path="/coaches" 
+                            component={Home}
+                            render={() =>  <Auth type="coaches" AuthForm={AuthForm} />} 
+                            />
+                    </>
+                    ) : (
+                        <>
+                            <Route 
+                            exact 
+                            path="/coaches" 
+                            render={() =>  <Auth type="coaches" AuthForm={AuthForm} />} 
+                            />
+                        </>
+                    )
+            }
         </Switch>
     );
 }
