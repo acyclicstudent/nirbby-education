@@ -5,18 +5,41 @@
     
     .left {
         flex: 3;
-        background-color: purple;
-        hr {
-            width: 33.5%;
-        }
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        .opacity {
+            height: 100%;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.4);
 
-        .logo-container {
-    
+            .logo-container {
+                font-family: 'Pacifico', cursive;
+                font-size: 35px;
+                color: white;
+            }
+            
+            .description {
+                color: white;
+                position: absolute;
+                bottom: 45px;
+                
+                hr {
+                    height: 3px;
+                    width: 33.5%;
+                    background-color: white;
+                    color: white;
+                    margin: 5px 0px 15px 0px;
+                }
+            }
         }
     }
 
     .right {
         flex: 2;
-        background-color: green;
     }
 }

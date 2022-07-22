@@ -5,6 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fas)
+
 
 const client = new ApolloClient({
   uri: 'https://flyby-gateway.herokuapp.com/',

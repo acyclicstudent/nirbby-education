@@ -6,24 +6,40 @@ export interface AuthProps {
 }
 
 export default function Auth(props: AuthProps) {
+    const image = props.type === 'coaches' 
+                    ? 'background-green.png'
+                    : props.type === 'institutes'
+                    ? 'background-yellow.png'
+                    : 'background-blue.jpg';
     return (
         <div className="app-auth">
             {/* Parte izquierda */}
-            <div className="left">
-                {/* Logo */}
-                <div className="logo-container">
-                    <p className="logo">Nedu</p>
+            <div 
+                className="left"
+                style={
                     {
-                        props.type === 'institutes' ? (
-                            <p className="type">For Institutes</p>
-                        ) : props.type === 'coaches' ? (
-                            <p className="type">For Coaches</p>
-                        ) : null
+                        backgroundImage: `url("/img/${image}")`
                     }
+                }
+            >
+                <div className="opacity">
+                    {/* Logo */}
+                    <div className="logo-container">
+                        <p className="logo">Nedu</p>
+                        {
+                            props.type === 'institutes' ? (
+                                <p className="type">For Institutes</p>
+                            ) : props.type === 'coaches' ? (
+                                <p className="type">For Coaches</p>
+                            ) : null
+                        }
+                    </div>
+                    <div className="description">
+                        <h1>{AUTH_TITLES[props.type]}</h1>
+                        <hr />
+                        <p>{AUTH_TEXTS[props.type]}</p>
+                    </div>
                 </div>
-                <h1>{AUTH_TITLES[props.type]}</h1>
-                <hr />
-                <p>{AUTH_TEXTS[props.type]}</p>
             </div>
             {/* Div de login */}
             <div className="right">
