@@ -1,3 +1,4 @@
+import { retrieveStudents } from "./resolvers/retrieve-students.resolver";
 export const handler = async (event: any) => {
     return (operations as any)[event.info.parentTypeName][event.info.fieldName](
         event.arguments,
@@ -9,5 +10,6 @@ const operations = {
     Mutation: {
     },
     Query: {
+        retrieveStudents
     }
 }
