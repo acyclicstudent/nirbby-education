@@ -5,13 +5,15 @@ import RegisterForm from "./RegisterForm";
 export default function AuthForm(){
     const [isLogin, setIsLogin] = useState(true);
 
+    const toggleForm = () =>setIsLogin(!isLogin);
+
     return (
         <div className="app-components-forms-authform">
             {
                 isLogin ? (
-                    <LoginForm />
+                    <LoginForm toggleForm={toggleForm}/>
                 ) : (
-                    <RegisterForm />
+                    <RegisterForm toggleForm={toggleForm}/>
                 )
             }
         </div>

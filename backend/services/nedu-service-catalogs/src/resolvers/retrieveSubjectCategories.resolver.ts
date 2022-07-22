@@ -11,7 +11,7 @@ export const retriveSubjectCategories =async (params:any, ident: any) => {
         TableName: process.env.DB_CATALOGS,
         KeyConditionExpression: 'catalog = :catalog',
         ExpressionAttributeNames: {
-            'catalog': Catalogs.subjects
+            ':catalog': Catalogs.subjects
         }
         
     }).promise();

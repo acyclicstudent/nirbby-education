@@ -1,6 +1,8 @@
 type Query{
-    retrieveSubjectCatalogs: [Subject]
+    retrieveSubjectCatalogs: [SubjectCatalog]
     retrieveStudents: [Student]
+    retrieveSubjectCollaborators: [SubjectCollaborator]
+    retrieveSubjects(scope:String!, type:SubjectQueryType!): [Subject]
 }
 type Mutation{
 
@@ -8,7 +10,7 @@ type Mutation{
 #####################################
 ## Type Definitions
 #####################################
-type Subject{
+type SubjectCatalog{
     id: ID
     name: String
     color: HexColor
@@ -21,4 +23,26 @@ type Student{
     name: String
     email: String
 
+}
+type SubjectCollaborator{
+    subjectId: ID
+    collaborator: ID
+    lastColabDate: Date
+    name: String
+}
+type Subject{
+    id: ID
+    category: ID
+    creationDate: Date
+    institution: ID
+    certification: [ID, String]
+    year: Int
+}
+#####################################
+## Enum Definitions
+#####################################
+enum SubjectQueryType{
+    DATE 
+    CATEGORY 
+    INSTITUTION
 }

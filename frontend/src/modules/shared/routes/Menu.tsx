@@ -13,7 +13,7 @@ export default function Menu () {
                 <p>Nedu</p>
             </div>
             <div className="right">
-                <Link to="/app"><div className="begin"><p>Inicio</p></div></Link>
+                <Link to="/app" className="link1"><div className="begin"><p>INICIO</p></div></Link>
                 <div className="icon">
                     <FontAwesomeIcon icon="right-from-bracket"/>
                 </div>
