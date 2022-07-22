@@ -1,3 +1,5 @@
 export enum Subjects {
-    id = 'id',
+    date = 'gsi-date',
+    category = 'gsi-category',
+    institution = 'gsi-institution',
 }

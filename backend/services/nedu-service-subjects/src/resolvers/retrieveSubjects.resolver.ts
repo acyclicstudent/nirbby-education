@@ -1,16 +1,29 @@
 import DynamoDB from 'aws-sdk/clients/dynamodb';
 import { ResourceNotFoundException } from '../domain/exceptions/resource-not-found.exception';
+import { Subjects } from '../domain/enums/subject.enum';
 
 const db = new DynamoDB.DocumentClient();
 
-export const retrieveSubjects =async (args: any, identity: any) => {
+const INDEXES = {
+    DATE: Subjects.date,
+    CATEGORY: Subjects.category,
+    INSTITUTION: Subjects.institution,
+}
+
+const EXPRESSIONS = {
+    DATE: 'year = :scope',
+    CATEGORY: 'category = :scope',
+    INSTITUTION: 'institution = :scope',
+}
+
+export const retrieveSubjects = async (args: any, identity: any) => {
     const subjectResults = await db.query({
         TableName: process.env.SUBJECTS_TABLE,
-        KeyConditionExpression: "id =: id", 
+        KeyConditionExpression: EXPRESSIONS[args.type], 
         ExpressionAttributeNames: {
-            'id': args.SubjectId
+            ':scope': args.scope 
         },
-        IndexName: "id"
+        IndexName: INDEXES[args.type]
 
     }).promise();
     if (!subjectResults) throw new ResourceNotFoundException('No se encontró la solicitud')

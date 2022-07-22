@@ -6,7 +6,7 @@ import Home from "./routes/Home";
 import Rewards from "./routes/Rewards";
 
 export default function DefaultRouter() {
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
         <Switch>
             {

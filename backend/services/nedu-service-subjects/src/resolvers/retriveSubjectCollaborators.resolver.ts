@@ -9,11 +9,11 @@ export const retriveSubjectCollaborators = async (params: any, ident: any) => {
         TableName: process.env.DB_SUBJECTS_COLLABORATORS,
         KeyConditionExpression: 'subjectId = :subjectId',
         ExpressionAttributeNames: {
-            'subjectId': params.subjectId
+            ':subjectId': params.subjectId
         }
     }).promise();
 
     if (!subject.Items) throw new ResourceNotFoundException('No hay colaboradores para esta materia');
-    
+
     return subject.Items;
 }

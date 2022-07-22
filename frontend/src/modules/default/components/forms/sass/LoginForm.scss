@@ -1,0 +1,25 @@
+.components-forms-login{
+    input{
+        margin-bottom: 10px;
+    }
+    button{
+        margin-top: 15px;
+    }
+    .login-input{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin: 20px;
+    }
+    .login-button{
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+    }
+    
+    .register{
+        margin: 15px;
+        text-align: center;
+    }
+}

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import ReactDOM from 'react-dom'
 import CircularBar from "../../../shared/components/CircularBar";
+import Input from "../../../shared/components/Input";
 
 
 
@@ -26,13 +27,12 @@ export default function LoginForm(props: LoginProps) {
 
     return(
         <div> 
-            <h1>Login</h1>
-            <CircularBar value={66} text="66"/>
-            <FontAwesomeIcon icon={faCoffee} />
-            <FontAwesomeIcon icon={['fab', 'apple']} />
-            <FontAwesomeIcon icon={['fab', 'microsoft']} />
-            <FontAwesomeIcon icon={['fab', 'google']} />
-            <FontAwesomeIcon icon="check-square" />
+            <Input 
+                type="password" 
+                placeholder="Password" 
+                value={data.password}
+                onChange={onChange}
+                name="password"/>
         </div>
     )
 }
