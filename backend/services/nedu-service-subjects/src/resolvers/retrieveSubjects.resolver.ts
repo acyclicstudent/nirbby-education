@@ -3,15 +3,14 @@ import { ResourceNotFoundException } from '../domain/exceptions/resource-not-fou
 
 const db = new DynamoDB.DocumentClient();
 
-export const retrieveSubjects =async (args, identity) => {
+export const retrieveSubjects =async (args: any, identity: any) => {
     const subjectResults = await db.query({
         TableName: process.env.SUBJECTS_TABLE,
-        KeyConditionExpression: "id", 
+        KeyConditionExpression: "id =: id", 
         ExpressionAttributeNames: {
-
+            'id': args.SubjectId
         },
-        IndexName: "Subject"
-        
+        IndexName: "id"
 
     }).promise();
     if (!subjectResults) throw new ResourceNotFoundException('No se encontró la solicitud')
