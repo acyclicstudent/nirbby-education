@@ -1,5 +1,5 @@
 type Query{
-    retriveSubjectCatalogs: [Subject]
+    retrieveSubjectCatalogs: [Subject]
     retrieveStudents: [Student]
 }
 type Mutation{
@@ -20,5 +20,5 @@ type Student{
     institution: ID
     name: String
     email: String
-    
+
 }
