@@ -4,7 +4,7 @@ import Auth from "../shared/routes/Auth";
 import AuthForm from "./components/forms/AuthForm";
 import Home from "./routes/Home";
 
-export default function CoachesRouter() {
+export default function DefaultRouter() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
         <Switch>
@@ -13,7 +13,7 @@ export default function CoachesRouter() {
                     <>
                         <Route
                             exact
-                            path="/institutes"
+                            path="/app"
                             component={Home}
                             render={() => <Auth type="institutes" AuthForm={AuthForm} />}
                         />
