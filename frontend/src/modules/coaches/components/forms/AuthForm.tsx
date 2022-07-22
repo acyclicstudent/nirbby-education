@@ -4,7 +4,7 @@ import RegisterForm from "./RegisterForm";
 
 export default function AuthForm() {
     const [isLogin, setIsLogin] = useState(true);
-
+    const toggleForm = () =>setIsLogin(!isLogin);
     return (
         <div className="coaches-components-forms-authform">
             {
