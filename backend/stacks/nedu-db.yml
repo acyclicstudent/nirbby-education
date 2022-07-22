@@ -11,32 +11,21 @@ Parameters:
     Description: 'The stage of the application.'
 
 Resources:
-  DBUsers:
+  DBCatalogs:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: !Sub "${Project}-db-users-${Stage}"
+      TableName: !Sub "${Project}-db-catalogs-${Stage}"
       AttributeDefinitions:
-        - AttributeName: username
+        - AttributeName: catalog
           AttributeType: S
-        - AttributeName: email
+        - AttributeName: id
           AttributeType: S
-        - AttributeName: subscriptionType
-          AttributeType: S
-        - AttributeName: subscriptionTime
-          AttributeType: N
       KeySchema:
-        - AttributeName: username
+        - AttributeName: catalog
           KeyType: HASH
+        - AttributeName: id
+          KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
-      GlobalSecondaryIndexes:
-        - IndexName: subscription-index
-          KeySchema:
-            - AttributeName: subscriptionType
-              KeyType: HASH
-            - AttributeName: subscriptionTime
-              KeyType: RANGE
-          Projection:
-            ProjectionType: ALL
       Tags:
         - Key: project
           Value: !Ref Project
@@ -45,6 +34,6 @@ Resources:
 
 Outputs:
   DBUsers:
-    Value: !Sub "${Project}-db-users-${Stage}"
+    Value: !Sub "${Project}-db-catalogs-${Stage}"
     Export:
-      Name: !Sub "${Project}-db-users-${Stage}"
+      Name: !Sub "${Project}-db-catalogs-${Stage}"
