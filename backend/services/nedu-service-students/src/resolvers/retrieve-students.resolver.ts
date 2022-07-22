@@ -4,14 +4,14 @@ import DynamoDB from 'aws-sdk/clients/dynamodb';
 
 const db = new DynamoDB.DocumentClient();
 
-export const retrieveStudents =         async (args, identity) => {
+export const retrieveStudents = async (args, identity) => {
     const studentsResult = await db.query({
         TableName: process.env.STUDENTS_TABLE,
-        KeyConditionExpression: "id = :id",
+        KeyConditionExpression: "parent = :id",
         ExpressionAttributeNames: {
-            'id': Students.id
+            ':id': identity.id
         },
-        IndexName: "student"
+        IndexName: "gsi-parent"
     }).promise();
     if(!studentsResult) throw new ResourceNotFoundException('No se encontró la solicitud.')
 
