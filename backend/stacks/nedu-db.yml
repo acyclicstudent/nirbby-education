@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Project DB Tables'
+
+Parameters:
+  Project:
+    Type: String
+    Description: 'The name of the project.'
+  Stage:
+    Type: String
+    Default: dev
+    Description: 'The stage of the application.'
+
+Resources:
+  DBCatalogs:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${Project}-db-catalogs-${Stage}"
+      AttributeDefinitions:
+        - AttributeName: catalog
+          AttributeType: S
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: catalog
+          KeyType: HASH
+        - AttributeName: id
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+      Tags:
+        - Key: project
+          Value: !Ref Project
+        - Key: stage
+          Value: !Ref Stage
+
+Outputs:
+  DBUsers:
+    Value: !Sub "${Project}-db-catalogs-${Stage}"
+    Export:
+      Name: !Sub "${Project}-db-catalogs-${Stage}"
