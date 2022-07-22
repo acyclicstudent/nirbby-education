@@ -9,5 +9,6 @@ const operations = {
     Mutation: {
     },
     Query: {
+        retriveCatalog 
     }
 }
