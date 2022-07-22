@@ -9,9 +9,9 @@ export default function AuthForm() {
         <div className="coaches-components-forms-authform">
             {
                 isLogin ? (
-                    <LoginForm />
+                    <LoginForm toggleForm={toggleForm}/>
                 ) : (
-                    <RegisterForm />
+                    <RegisterForm  />
                 )
             }
         </div>
