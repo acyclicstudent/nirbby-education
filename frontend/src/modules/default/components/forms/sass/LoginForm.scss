@@ -2,9 +2,11 @@
     input{
         margin-bottom: 10px;
     }
+    
     button{
         margin-top: 15px;
     }
+
     .login-input{
         display: flex;
         flex-direction: column;
@@ -12,6 +14,12 @@
         gap: 8px;
         margin: 20px;
     }
+
+    .login-pass {
+        margin: 15px;
+        text-align: right;
+    }
+
     .login-button{
         display: flex;
         justify-content: center;

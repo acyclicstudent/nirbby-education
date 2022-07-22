@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Button from "../../../shared/components/Button";
-import ButtonToggle from "../../../shared/components/ButtonToggle";
 import Input from "../../../shared/components/Input";
 import "./sass/LoginForm.scss"
 
@@ -44,11 +43,18 @@ export default function LoginForm(props: LoginProps){
                     name="password"
                 />
             </div>
+            <div className="login-pass">
+            <button className="underlined-button" onClick={props.toggleForm}>
+                    ¿Olvidaste tu contrasena? 
+                </button>
+            </div>
             <div className="login-button">
                 <Button text="Iniciar Sesión"/>
-            </div>        
+            </div>
             <div className="register">
-                <ButtonToggle text = "No tienes cuenta?, registrate aqui"/>
+                <button className="underlined-button" onClick={props.toggleForm}>
+                    ¿No tienes cuenta? Registrate
+                </button>
             </div>            
         </div>
     );
