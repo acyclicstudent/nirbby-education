@@ -7,14 +7,16 @@ import CoachesModule from './modules/coaches';
 import InstitutesModule from './modules/institutes';
 import DefaultModule from './modules/default';
 import Landing from './routes/Landing';
+import Rewards from './modules/default/routes/Rewards';
 
 function App() {
   return (
     <Switch>
       <Route path="/app" component={DefaultModule} />
       <Route path="/coaches" component={CoachesModule} />
-      <Route path="/institutes" component={InstitutesModule} />
+      <Route path="/institutes" component={InstitutesModule} /> 
       <Route exact path="/" component={Landing} />
+      
     </Switch>
   );
 }

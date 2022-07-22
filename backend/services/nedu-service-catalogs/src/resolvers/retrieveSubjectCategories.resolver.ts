@@ -4,7 +4,7 @@ import { Catalogs } from '../domain/enums/catalogs.enum';
 
 const dynamoDb = new DynamoDB.DocumentClient();
 
-export const retriveCatalog =async (params:any, ident: any) => {
+export const retriveSubjectCategories =async (params:any, ident: any) => {
 
     const subjects = await dynamoDb.query({
 

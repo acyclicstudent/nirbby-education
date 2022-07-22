@@ -1,4 +1,4 @@
-import { retriveCatalog } from './services/retriveSubjectCatalog.resolver';
+import { retriveSubjectCategories } from './resolvers/retrieveSubjectCategories.resolver';
 export const handler = async (event: any) => {
     return (operations as any)[event.info.parentTypeName][event.info.fieldName](
         event.arguments,
@@ -10,6 +10,6 @@ const operations = {
     Mutation: {
     },
     Query: {
-        retriveCatalog 
+        retriveSubjectCategories
     }
 }
