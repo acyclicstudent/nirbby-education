@@ -13,6 +13,7 @@ export const retriveCatalog =async (params:any, ident: any) => {
         ExpressionAttributeNames: {
             'catalog': Catalogs.subjects
         }
+        
     }).promise();
 
     if (!subjects.Items) throw new ResourceNotFoundException('No hay materias para este catalogo');
