@@ -1,5 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
+import CircularBar from "../../shared/components/CircularBar";
+import Grade from "../../shared/components/Grade";
 import Menu from "../../shared/routes/Menu";
 import './sass/Home.scss';
 
@@ -33,18 +35,25 @@ export default function Home() {
             <Menu/>
             <div className="app-content-container">
                 <div className="app-component-buttons">
-                    <Link to={"/subjects"} className="app-component-link1">
+                    <Link to={"/app/subjects"} className="app-component-link1">
                         <p>Mis Materias</p>
                     </Link>
-                    <Link to={"/mycoaches"} className="app-component-link2">
+                    <Link to={"/app/mycoaches"} className="app-component-link2">
                         <p>Mis Tutores</p>
                     </Link>
-                    <Link to={"/rewards"} className="app-component-link3">
+                    <Link to={"/app/rewards"} className="app-component-link3">
                         <p>Mis Recompensas</p>
                     </Link>
                 </div>
                 <div className="app-component-progress">
-                    
+                    <div className="app-component-h1">
+                        <h1>Mi Progreso</h1>
+                    </div>
+                    <CircularBar value={70} text={"50%"} />
+                    <p className="app-component-name"> Axel Adrián López Cedano</p> 
+                    <Grade subject={"Matematicas"} grade={10}></Grade>
+                    <Grade subject={"Biologia"} grade={7}></Grade>
+                    <Grade subject={"Ciencias"} grade={5}></Grade>
                 </div>
             </div>
         </div>

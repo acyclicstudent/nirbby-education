@@ -4,17 +4,14 @@
     flex-direction: column; 
     width: 100%;
     align-items: center;
-
     .app-content-container{
         display: flex;
         flex-direction: row;
         height: 100vh;
         width: 100%;
+        margin-top: 10px;
         .app-component-buttons{
-            display: flex;
-            flex-direction:column;
-            width: 100%;
-            flex: 1;
+            flex: 2;
             font-family: 'Rubik', sans-serif;
             font-size: 30px;
             align-items: center;
@@ -22,7 +19,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 5px;
             margin-left: 30px;
-            margin-top: 30px;
+            margin-right: 10px;
+            padding-bottom: 20px;
             .app-component-link1, .app-component-link2, .app-component-link3{
                 border: 1px;
                 align-items: center;
@@ -31,6 +29,7 @@
                 height: 300px;
                 border-radius: 10px;
                 gap: 10px;
+                text-decoration: none;
             }
             .app-component-link1{
                 background-color: #8FC79A;
@@ -51,10 +50,34 @@
 
         .app-component-progress{
             display: flex;
-            flex-direction:column;
-            width: 100%;
+            flex-direction: column;
             flex: 1;
-            height: 100%;
+            align-items: center;
+            box-shadow: 0px 3px 6px #00000070;
+            margin-bottom: 25px;
+            margin-left: 30px;
+            margin-right: 30px;
+            .app-component-h1{
+                display: flex;
+                margin-bottom: 20px;
+                padding-top: 60px;
+                align-items: left;
+                h1{
+                    font-family: 'Rubik', sans-serif;
+                    font-size: 30px;
+                    justify-content: right;
+                    font-weight: bold;
+                }
+            }
+            .app-component-name{
+                font-family: 'Rubik', sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            
+            
+            
         }
     }
 }

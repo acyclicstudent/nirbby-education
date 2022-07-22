@@ -1,0 +1,13 @@
+.shared-component-grade{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    width: 75%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    p{
+        font-family: 'Montserrat', sans-serif;
+    }
+}
