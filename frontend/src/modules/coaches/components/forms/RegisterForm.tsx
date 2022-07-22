@@ -1,14 +1,16 @@
 import { useState } from "react";
 
-export default function RegisterForm(){
+export interface RegisterProps  {
+    toggleForm: () => void;
+}
+
+export default function RegisterForm(props: RegisterProps){
     
     const [data, setData] = useState({
         name: "",
         email: "",
         password: "",
     });
-
-    
     
     const onChange = (event:any) => {
         const { name, value } = event.target;

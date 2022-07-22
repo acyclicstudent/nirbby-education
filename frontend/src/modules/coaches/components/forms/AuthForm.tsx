@@ -11,7 +11,7 @@ export default function AuthForm() {
                 isLogin ? (
                     <LoginForm toggleForm={toggleForm}/>
                 ) : (
-                    <RegisterForm  />
+                    <RegisterForm toggleForm={toggleForm}  />
                 )
             }
         </div>
