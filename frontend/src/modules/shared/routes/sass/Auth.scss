@@ -1,0 +1,19 @@
+.app-auth {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    
+    .left {
+        flex: 3;
+        background-color: purple;
+
+        .logo-container {
+    
+        }
+    }
+
+    .right {
+        flex: 2;
+        background-color: green;
+    }
+}
