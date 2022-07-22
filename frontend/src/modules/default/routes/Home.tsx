@@ -31,6 +31,7 @@ export default function Home() {
     if (error) return <p>Error :</p>;
     */
     return (
+        
         <div className="app-component-home">
             <Menu/>
             <div className="app-content-container">

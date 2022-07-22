@@ -1,8 +1,9 @@
-
+import Menu from "../../shared/routes/Menu";
+import './sass/Rewards.scss';
 export default function Rewards(){
     return(
-        <div>
-            <h1>Rewards</h1>
+        <div className="app-component-rewards">
+            <Menu/>
         </div>
     )
 }
