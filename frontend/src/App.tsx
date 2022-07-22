@@ -11,10 +11,10 @@ import Landing from './routes/Landing';
 function App() {
   return (
     <Switch>
-      <Route path="/" component={Landing} />
       <Route path="/app" component={DefaultModule} />
       <Route path="/coaches" component={CoachesModule} />
       <Route path="/institutes" component={InstitutesModule} />
+      <Route exact path="/" component={Landing} />
     </Switch>
   );
 }

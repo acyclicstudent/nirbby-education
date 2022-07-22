@@ -6,9 +6,9 @@ export default function CoachesRouter() {
     return (
         <Switch>
             <Route 
-              exact 
-              path="/app" 
-              render={() =>  <Auth type="coaches" AuthForm={AuthForm} />} 
+                exact 
+                path="/app" 
+                render={() => <Auth type="default" AuthForm={AuthForm} />} 
             />
         </Switch>
     );
