@@ -33,6 +33,7 @@ Resources:
       Environment:
         Variables:
           PROJECT: !Ref Project
+          DB_CATALOGS: !Sub "${Project}-db-catalogs-${Stage}"
           STAGE: !Ref Stage
       Tags:
         - Key: "project"
