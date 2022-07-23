@@ -20,7 +20,7 @@ export const retrieveSubjects = async (args: any, identity: any) => {
     const subjectResults = await db.query({
         TableName: process.env.SUBJECTS_TABLE,
         KeyConditionExpression: EXPRESSIONS[args.type], 
-        ExpressionAttributeNames: {
+        ExpressionAttributeValues: {
             ':scope': args.scope 
         },
         IndexName: INDEXES[args.type]
