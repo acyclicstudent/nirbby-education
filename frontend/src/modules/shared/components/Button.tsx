@@ -2,11 +2,12 @@ import './sass/Button.scss';
 
 export interface ButtonProps {
     text: string;
+    onClick?: () => void;
 }
 
 export default function Button(props: ButtonProps) {
     return (
-        <button className="component-forms-button">
+        <button onClick={props.onClick} className="component-forms-button">
             {props.text}
         </button>
     );

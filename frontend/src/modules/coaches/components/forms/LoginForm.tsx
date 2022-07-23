@@ -31,7 +31,7 @@ export default function LoginForm(props: LoginProps) {
             {/*Aqui va el boton que cambia uno y otro*/}
 
             {/* Todo esto se debe hacer un nuevo componente y aplicar un nuevo if como el que esta en el authform*/}
-            <h1 className="title">Iniciar Sesión</h1>
+            <p className="title">Iniciar Sesión</p>
             
             <div className="login-input">
                 <Input 
