@@ -8,9 +8,12 @@ import HomeStudent from "./routes/HomeStudent";
 
 export default function DefaultRouter() {
     const [state, authDispatchers] = useAuth('default');
-    console.log(state);
+    console.log('State: ', state);
+
+    if (state.isLoading) return <p>Cargando....</p>;
+
     return (
-        <AuthProvider value={authDispatchers as any}>
+        <AuthProvider value={authDispatchers}>
             <Switch>
                 {
                     state.isAuth ? (
@@ -21,16 +24,15 @@ export default function DefaultRouter() {
                                     path="/app"
                                     component={HomeParents}
                                 />
-                                <Route path="/app/afiliates" component={Rewards} />
                             </>
-                            ) : (
+                        ) : (
                             <>
                                 <Route
                                     exact
                                     path="/app"
                                     component={HomeStudent}
                                 />
-                                <Route path="/app/afiliates" component={Rewards} />
+                                <Route path="/app/rewards" component={Rewards} />
                             </>
                         )
                     ) : (

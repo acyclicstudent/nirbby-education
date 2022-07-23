@@ -1,4 +1,3 @@
-import { gql, useQuery } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
 import CircularBar from "../../shared/components/CircularBar";
 import Grade from "../../shared/components/Grade";
@@ -7,28 +6,16 @@ import './sass/Home.scss';
 
 export default function HomeStudent() {
     const params = useParams<any>();//Tipado (cualquiera)
-    //Aqui ponemos los datos a buscar en la query
-    const GET_STRAYDOG = gql` 
-    query ExampleQuery($locationId: ID!) {
-      location(id: $locationId) {
-        id
-        name
-        description
-        photo
-        overallRating
-      }
-    }
-  `;
-  /*const { loading, error, data } = useQuery(GET_STRAYDOG, {
-    variables: {
-        locationId: params.id,
-        image: params.image,
-        description: params.description
-        }
-    });
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :</p>;
+    /*const { loading, error, data } = useQuery(GET_STRAYDOG, {
+        variables: {
+            locationId: params.id,
+            image: params.image,
+            description: params.description
+            }
+        });
+    
+        if (loading) return <p>Loading...</p>;
+        if (error) return <p>Error :</p>;
     */
     return (
         

@@ -43,9 +43,9 @@ export const signIn = async (credentials: Credentials) => {
             password: credentials.password
         });
 
-        console.log(result);
+        console.log('Sign In Result: ',result);
     } catch (error) {
-        console.log(error);
+        console.log('Sign In Error: ', error);
     }
 }
 

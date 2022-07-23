@@ -20,6 +20,7 @@ export const useAuth = (type: string): [AuthState, AuthDispatchers] => {
 
     const replaceWithSignout = useCallback(
         async (path: string) => {
+            console.log('Redirect...');
             await client.cache.reset();
             await Auth.signOut();
             history.replace(path);
@@ -34,18 +35,20 @@ export const useAuth = (type: string): [AuthState, AuthDispatchers] => {
                 try {
                     const loginResult = await Auth.signIn(values.email, values.password);
                     const groups = loginResult.signInUserSession.idToken.payload["cognito:groups"] || [];
-                    console.log('Login result', loginResult);
+                    console.log('Login result: ', loginResult);
                     const isStudent = !groups.length;
-                    const isInstitute = groups.includes('institute')
-                    const isCoach = groups.includes('coach')
-                    const isParent = groups.includes('parent')
+                    const isInstitute = groups.includes('institutes')
+                    const isCoach = groups.includes('coaches')
+                    const isParent = groups.includes('parents')
                     const isParentOrStudent = isParent || isStudent;
 
+                    console.log('Signing in: ', isParent, isParentOrStudent);
                     // Si el usuario está accediendo en una pantalla que no le pertenece, lo redireccionamos.
                     if (type === 'institutes' && !isInstitute) return replaceWithSignout('/institutes'); 
                     if (type === 'coaches' && !isCoach) return replaceWithSignout('/coaches'); 
                     if (type === 'default' && !isParentOrStudent) return replaceWithSignout('/app'); 
 
+                    console.log('Dispatching...')
                     dispatch({ 
                         type: "SIGN_IN",
                         isCoach,
@@ -96,10 +99,11 @@ export const useAuth = (type: string): [AuthState, AuthDispatchers] => {
 
                      // Si el usuario está accediendo en una pantalla que no le pertenece, lo redireccionamos.
                     const isStudent = !groups.length;
-                    const isInstitute = groups.includes('institute')
-                    const isCoach = groups.includes('coach')
-                    const isParent = groups.includes('parent')
+                    const isInstitute = groups.includes('institutes')
+                    const isCoach = groups.includes('coaches')
+                    const isParent = groups.includes('parents')
                     const isParentOrStudent = isParent || isStudent;
+                    
                     if (type === 'institutes' && !isInstitute) return replaceWithSignout('/institutes'); 
                     if (type === 'coaches' && !isCoach) return replaceWithSignout('/coaches'); 
                     if (type === 'default' && !isParentOrStudent) return replaceWithSignout('/app'); 
