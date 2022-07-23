@@ -1,11 +1,15 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../auth';
 import './sass/MenuParents.scss';
 
 //const imageLogo = require("../../assets/images/logo.png");
 
 export default function MenuParents () {
+    const authContext = useContext(AuthContext);
+
     return (
         <div className="components-ui-menu-parents">
             <div className="left">
@@ -16,7 +20,7 @@ export default function MenuParents () {
                 <Link to="/parent/subjects" className="link1"><div className="begin"><p>Materias</p></div></Link>
                 <Link to="/parents/affiliates" className="link2"><div className="begin"><p>Estudiantes</p></div></Link>
                 <Link to="/parents/account" className="link2"><div className="begin"><p>Cuenta</p></div></Link>
-                <div className="icon">
+                <div className="icon" onClick={authContext.signOut}>
                     {/*<p><FontAwesomeIcon icon="bell" /></p>*/}
                     <p><FontAwesomeIcon icon="right-from-bracket"/></p>
                 </div>

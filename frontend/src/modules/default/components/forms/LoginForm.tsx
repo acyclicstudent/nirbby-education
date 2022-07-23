@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../auth";
 import Button from "../../../shared/components/Button";
 import Input from "../../../shared/components/Input";
+import Swal from 'sweetalert2';
 import "./sass/LoginForm.scss"
 
 export interface LoginProps {
@@ -8,6 +10,7 @@ export interface LoginProps {
 }
 
 export default function LoginForm(props: LoginProps){
+    const authContext = useContext(AuthContext);
 
     const [data, setData] = useState({
         email: "",
@@ -19,6 +22,22 @@ export default function LoginForm(props: LoginProps){
         setData({
             ...data, [name]: value
         })
+    }
+
+    const login = async () => {
+        try {
+            await authContext.signIn({
+                email: data.email,
+                password: data.password
+            })
+        } catch (err) {
+            Swal.fire({
+                icon: 'error',
+                title: 'No se pudo iniciar la sesión',
+                heightAuto: false,
+                text: (err as Error).message
+            });
+        }
     }
 
     return(
@@ -52,7 +71,7 @@ export default function LoginForm(props: LoginProps){
                 </button>
             </div>
             <div className="login-button">
-                <Button text="Iniciar Sesión"/>
+                <Button onClick={login} text="Iniciar Sesión"/>
             </div>
             <div className="register">
                 <button className="underlined-button" onClick={props.toggleForm}>
