@@ -11,11 +11,11 @@ Parameters:
     Description: 'The stage of the application.'
 
 Resources:
-  Resolver:
+  RetrieveSubjectCatalogsResolver:
     Type: AWS::AppSync::Resolver
     Properties:
       ApiId:
         Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
-      TypeName: Mutation # Or Query
-      FieldName: resolverName
-      DataSourceName: !Sub "MeetingsServiceDS_${Stage}"
+      TypeName: Query # Or Query
+      FieldName: retrieveSubjectCatalogs
+      DataSourceName: !Sub "ServiceSubjectsDS_${Stage}"

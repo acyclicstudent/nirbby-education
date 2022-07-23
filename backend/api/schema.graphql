@@ -1,8 +1,10 @@
 type Query{
+    # Subjects.
     retrieveSubjectCatalogs: [SubjectCatalog]
-    retrieveStudents: [Student]
     retrieveSubjectCollaborators: [SubjectCollaborator]
     retrieveSubjects(scope: String!, type: SubjectQueryType!): [Subject]
+    # Students
+    retrieveStudents: [Student]
 }
 
 type Mutation {

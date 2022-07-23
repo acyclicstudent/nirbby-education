@@ -31,9 +31,248 @@ Resources:
           Value: !Ref Project
         - Key: stage
           Value: !Ref Stage
+  DBStudents:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${Project}-db-students-${Stage}"
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: parent
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      GlobalSecondaryIndexes:
+        - IndexName: gsi-parent
+          KeySchema:
+            - AttributeName: parent
+              KeyType: HASH
+            - AttributeName: id
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+        - IndexName: gsi-institutions
+          KeySchema:
+            - AttributeName: institution
+              KeyType: HASH
+            - AttributeName: id
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: project
+          Value: !Ref Project
+        - Key: stage
+          Value: !Ref Stage
+  DBContent:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${Project}-db-content-${Stage}"
+      AttributeDefinitions:
+        - AttributeName: subjectId
+          AttributeType: S
+        - AttributeName: order
+          AttributeType: S
+      KeySchema:
+        - AttributeName: subjectId
+          KeyType: HASH
+        - AttributeName: order
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+      Tags:
+        - Key: project
+          Value: !Ref Project
+        - Key: stage
+          Value: !Ref Stage
+  DBUsers:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${Project}-db-users-${Stage}"
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      Tags:
+        - Key: project
+          Value: !Ref Project
+        - Key: stage
+          Value: !Ref Stage
+  DBCertifications:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${Project}-db-certifications-${Stage}"
+      AttributeDefinitions:
+        - AttributeName: certificationId
+          AttributeType: S
+        - AttributeName: coachId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: certificationId
+          KeyType: HASH
+        - AttributeName: coachId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+      Tags:
+        - Key: project
+          Value: !Ref Project
+        - Key: stage
+          Value: !Ref Stage
+  DBSubjects:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${Project}-db-subjects-${Stage}"
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: category
+          AttributeType: S
+        - AttributeName: creationDate
+          AttributeType: N
+        - AttributeName: institution
+          AttributeType: S
+        - AttributeName: certification
+          AttributeType: S
+        - AttributeName: year
+          AttributeType: N
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      GlobalSecondaryIndexes:
+        - IndexName: gsi-date
+          KeySchema:
+            - AttributeName: year
+              KeyType: HASH
+            - AttributeName: creationDate
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+        - IndexName: gsi-category
+          KeySchema:
+            - AttributeName: category
+              KeyType: HASH
+            - AttributeName: creationDate
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+        - IndexName: gsi-institution
+          KeySchema:
+            - AttributeName: ìnstitution
+              KeyType: HASH
+            - AttributeName: creationDate
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: project
+          Value: !Ref Project
+        - Key: stage
+          Value: !Ref Stage
+  DBSubjectCollaborators:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${Project}-db-subject-collaborators-${Stage}"
+      AttributeDefinitions:
+        - AttributeName: subjectId
+          AttributeType: S
+        - AttributeName: collaborator
+          AttributeType: S
+        - AttributeName: lastCollabDate
+          AttributeType: N
+      KeySchema:
+        - AttributeName: subjectId
+          KeyType: HASH
+        - AttributeName: collaborator
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+      Tags:
+        - Key: project
+          Value: !Ref Project
+        - Key: stage
+          Value: !Ref Stage
+  DBInscriptions:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${Project}-db-inscriptions-${Stage}"
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: coach
+          AttributeType: S
+        - AttributeName: student
+          AttributeType: S
+        - AttributeName: parent
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      GlobalSecondaryIndexes:
+        - IndexName: gsi-coach
+          KeySchema:
+            - AttributeName: coach
+              KeyType: HASH
+            - AttributeName: id
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+        - IndexName: gsi-category
+          KeySchema:
+            - AttributeName: student
+              KeyType: HASH
+            - AttributeName: id
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+        - IndexName: gsi-institution
+          KeySchema:
+            - AttributeName: parent
+              KeyType: HASH
+            - AttributeName: id
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: project
+          Value: !Ref Project
+        - Key: stage
+          Value: !Ref Stage
 
 Outputs:
-  DBUsers:
+  DBCatalogs:
     Value: !Sub "${Project}-db-catalogs-${Stage}"
     Export:
       Name: !Sub "${Project}-db-catalogs-${Stage}"
+  DBStudents:
+    Value: !Sub "${Project}-db-students-${Stage}"
+    Export:
+      Name: !Sub "${Project}-db-students-${Stage}"
+  DBContent:
+    Value: !Sub "${Project}-db-content-${Stage}"
+    Export:
+      Name: !Sub "${Project}-db-content-${Stage}"
+  DBUsers:
+    Value: !Sub "${Project}-db-users-${Stage}"
+    Export:
+      Name: !Sub "${Project}-db-users-${Stage}"
+  DBCertifications:
+    Value: !Sub "${Project}-db-certifications-${Stage}"
+    Export:
+      Name: !Sub "${Project}-db-certifications-${Stage}"
+  DBSubjects:
+    Value: !Sub "${Project}-db-subjects-${Stage}"
+    Export:
+      Name: !Sub "${Project}-db-subjects-${Stage}"
+  DBSubjectCollaborators:
+    Value: !Sub "${Project}-db-subject-collaborators-${Stage}"
+    Export:
+      Name: !Sub "${Project}-db-subject-collaborators-${Stage}"
+  DBInscriptions:
+    Value: !Sub "${Project}-db-inscriptions-${Stage}"
+    Export:
+      Name: !Sub "${Project}-db-inscriptions-${Stage}"

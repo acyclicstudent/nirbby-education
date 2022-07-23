@@ -72,5 +72,6 @@ export const handler = async (event: SQSEvent) => {
 
 export const handleRecord = async (record: SQSRecord) => {
     // Handle Record
-
+    const body = JSON.parse(record.body);
+    
 }
