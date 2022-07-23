@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Auth from "../shared/routes/Auth";
 import AuthForm from "./components/forms/AuthForm";
-import Home from "./routes/HomeStudent";
+import HomeStudent from "./routes/HomeStudent";
 import Rewards from "./routes/Rewards";
+import HomeParents from "./routes/HomeParents";
 
 export default function DefaultRouter() {
     const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -15,10 +16,10 @@ export default function DefaultRouter() {
                         <Route
                             exact
                             path="/app"
-                            component={Home}
+                            component={HomeParents}
                             render={() => <Auth type="institutes" AuthForm={AuthForm} />}
                         />
-                        <Route path="/app/rewards" component={Rewards} />
+                        <Route path="/app/HomeParents" component={Rewards} />
                     </>
                 ) : (
                     <>

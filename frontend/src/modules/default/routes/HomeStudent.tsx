@@ -5,7 +5,7 @@ import Grade from "../../shared/components/Grade";
 import Menu from "../../shared/routes/Menu";
 import './sass/Home.scss';
 
-export default function Home() {
+export default function HomeStudent() {
     const params = useParams<any>();//Tipado (cualquiera)
     //Aqui ponemos los datos a buscar en la query
     const GET_STRAYDOG = gql` 
