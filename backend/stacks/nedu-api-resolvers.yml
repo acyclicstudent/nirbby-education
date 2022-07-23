@@ -19,3 +19,27 @@ Resources:
       TypeName: Query # Or Query
       FieldName: retrieveSubjectCatalogs
       DataSourceName: !Sub "ServiceSubjectsDS_${Stage}"
+  RetrieveStudentsResolver:
+    Type: AWS::AppSync::Resolver
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      TypeName: Query # Or Query
+      FieldName: retrieveStudents
+      DataSourceName: !Sub "ServiceStudentsDS_${Stage}"
+  RetrieveSubjectCollaboratorsResolver:
+    Type: AWS::AppSync::Resolver
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      TypeName: Query # Or Query
+      FieldName: retrieveSubjectCollaborators
+      DataSourceName: !Sub "ServiceSubjectsDS_${Stage}"
+  RetrieveSubjectsResolver:
+    Type: AWS::AppSync::Resolver
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      TypeName: Query # Or Query
+      FieldName: retrieveSubjects
+      DataSourceName: !Sub "ServiceSubjectsDS_${Stage}"
