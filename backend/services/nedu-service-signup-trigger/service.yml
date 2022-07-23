@@ -34,6 +34,7 @@ Resources:
         Variables:
           PROJECT: !Ref Project
           STAGE: !Ref Stage
+          USERS_TABLE: !Sub "${Project}-db-users-${Stage}"
       Tags:
         - Key: "project"
           Value: !Ref Project

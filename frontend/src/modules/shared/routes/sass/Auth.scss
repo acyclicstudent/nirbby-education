@@ -20,7 +20,16 @@
             .logo-container {
                 font-family: 'Pacifico', cursive;
                 font-size: 35px;
-                color: white;
+                color: #fff;
+                display: flex;
+                align-items: flex-end;
+
+                .type {
+                    font-size: 20px;
+                    margin-left: 7px;
+                    margin-bottom: 0px;
+                    font-family: 'Montserrat', sans-serif;
+                }
             }
             
             .description {
