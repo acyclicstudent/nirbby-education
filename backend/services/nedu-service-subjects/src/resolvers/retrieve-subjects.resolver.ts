@@ -10,6 +10,12 @@ const INDEXES = {
     INSTITUTION: Subjects.institution,
 }
 
+const ATTRIBUTES = {
+    DATE: 'year',
+    CATEGORY: 'category',
+    INSTITUTION: 'institution',
+}
+
 const EXPRESSIONS = {
     DATE: '#scope = :scope',
     CATEGORY: '#scope = :scope',
@@ -21,7 +27,7 @@ export const retrieveSubjects = async (args: any, identity: any) => {
         TableName: process.env.SUBJECTS_TABLE,
         KeyConditionExpression: EXPRESSIONS[args.type],
         ExpressionAttributeNames: {
-            '#scope': args.type.toLowerCase()
+            '#scope': ATTRIBUTES[args.type]
         },
         ExpressionAttributeValues: {
             ':scope': args.scope 

@@ -9,7 +9,10 @@ export const retrieveSubjectCategories =async (params:any, ident: any) => {
     const subjects = await dynamoDb.query({
 
         TableName: process.env.DB_CATALOGS,
-        KeyConditionExpression: 'catalog = :catalog',
+        KeyConditionExpression: '#catalog = :catalog',
+        ExpressionAttributeNames: {
+            '#catalog': 'catalog'
+        },
         ExpressionAttributeValues: {
             ':catalog': Catalogs.subjects
         }
