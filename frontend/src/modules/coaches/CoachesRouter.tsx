@@ -6,7 +6,7 @@ import CheckStudent from "./routes/CheckStudent";
 import Home from "./routes/Home";
 
 export default function CoachesRouter() {
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
         <Switch>
             {
@@ -15,7 +15,7 @@ export default function CoachesRouter() {
                         <Route 
                             exact 
                             path="/coaches" 
-                            component={CheckStudent}
+                            component={Home}
                             render={() =>  <Auth type="coaches" AuthForm={AuthForm} />} 
                             />
                     </>
