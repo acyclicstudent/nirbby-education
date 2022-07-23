@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../../../shared/components/Button";
 import Input from "../../../shared/components/Input";
+import "./sass/RegisterForm.scss"
 
 export interface RegisterProps {
     toggleForm: () => void;

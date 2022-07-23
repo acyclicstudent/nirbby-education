@@ -11,9 +11,8 @@ html, body, #root {
 .underlined-button{
   font-family: 'Montserrat', sans-serif;
   background-color: white;
-  text-decoration: under;
+  text-decoration: underline;
   border:none;
-  margin: auto; 
 }
 .underlined-button:hover{
   opacity: 0.6;

@@ -23,7 +23,10 @@ export default function LoginForm(props: LoginProps){
 
     return(
         <div className="components-forms-login">
-            <h1 className="title">Inicia Sesión</h1>
+            {/*Aqui va el boton que cambia uno y otro*/}
+
+            {/* Todo esto se debe hacer un nuevo componente y aplicar un nuevo if como el que esta en el authform*/}
+            <h1 className="title">Iniciar Sesión</h1>
             
             <div className="login-input">
                 <Input 
@@ -44,8 +47,8 @@ export default function LoginForm(props: LoginProps){
                 />
             </div>
             <div className="login-pass">
-            <button className="underlined-button" onClick={props.toggleForm}>
-                    ¿Olvidaste tu contrasena? 
+                <button className="underlined-button" onClick={props.toggleForm}>
+                        Olvide mi contraseña
                 </button>
             </div>
             <div className="login-button">
