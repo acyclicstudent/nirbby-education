@@ -11,14 +11,14 @@ Parameters:
     Description: 'The stage of the application.'
 
 Resources:
-  RetrieveSubjectCatalogsResolver:
+  RetrieveSubjectCategoriesResolver:
     Type: AWS::AppSync::Resolver
     Properties:
       ApiId:
         Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
       TypeName: Query # Or Query
-      FieldName: retrieveSubjectCatalogs
-      DataSourceName: !Sub "ServiceSubjectsDS_${Stage}"
+      FieldName: retrieveSubjectCategories
+      DataSourceName: !Sub "ServiceCatalogsDS_${Stage}"
   RetrieveStudentsResolver:
     Type: AWS::AppSync::Resolver
     Properties:

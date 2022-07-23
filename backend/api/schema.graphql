@@ -1,6 +1,7 @@
 type Query{
     # Subjects.
     retrieveSubjectCatalogs: [SubjectCatalog]
+    retrieveSubjectCategories: [SubjectCatalog]
     retrieveSubjectCollaborators: [SubjectCollaborator]
     retrieveSubjects(scope: String!, type: SubjectQueryType!): [Subject]
     # Students
