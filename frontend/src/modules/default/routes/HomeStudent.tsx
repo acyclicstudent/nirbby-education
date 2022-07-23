@@ -50,7 +50,7 @@ export default function HomeStudent() {
                     <div className="app-component-h1">
                         <h1>Mi Progreso</h1>
                     </div>
-                    <CircularBar value={70} text={"50%"} />
+                    <CircularBar value={70} text={"50%"} width={200} height={200} />
                     <p className="app-component-name"> Axel Adrián López Cedano</p> 
                     <Grade subject={"Matematicas"} grade={10}></Grade>
                     <Grade subject={"Biologia"} grade={7}></Grade>
