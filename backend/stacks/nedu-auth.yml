@@ -87,12 +87,18 @@ Resources:
       GroupName: "parents"
       UserPoolId: !Ref UserPool
       Description: 'Group for parents.'
-  CoachGroup:
+  StudentsGroup:
     Type: AWS::Cognito::UserPoolGroup
     Properties:
-      GroupName: "coaches"
+      GroupName: "students"
       UserPoolId: !Ref UserPool
-      Description: 'Group for coaches.'
+      Description: 'Group for students.'
+  TeacherGroup:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties:
+      GroupName: "teachers"
+      UserPoolId: !Ref UserPool
+      Description: 'Group for teachers.'
 
   # Web Client
   WebUserPoolClient:
