@@ -1,4 +1,4 @@
-import { retriveSubjectCollaborators } from "./resolvers/retriveSubjectCollaborators.resolver";
+import { retriveSubjectCollaborators } from "./resolvers/retrieve-subject-collaborators.resolver";
 import { retrieveSubjects } from "./resolvers/retrieve-subjects.resolver";
 export const handler = async (event: any) => {
     return (operations as any)[event.info.parentTypeName][event.info.fieldName](
