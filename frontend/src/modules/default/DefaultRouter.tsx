@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import { AuthProvider, useAuth } from "../auth";
 import Auth from "../shared/routes/Auth";
 import AuthForm from "./components/forms/AuthForm";
-import Home from "./routes/HomeStudent";
 import Rewards from "./routes/Rewards";
+import HomeParents from "./routes/HomeParents";
 
 export default function DefaultRouter() {
     const [state, authDispatchers] = useAuth('default');
@@ -18,7 +17,7 @@ export default function DefaultRouter() {
                             <Route
                                 exact
                                 path="/app"
-                                component={Home}
+                                component={HomeParents}
                                 render={() => <Auth type="default" AuthForm={AuthForm} />}
                             />
                             <Route path="/app/rewards" component={Rewards} />
