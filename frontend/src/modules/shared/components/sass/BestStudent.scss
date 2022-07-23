@@ -1,0 +1,29 @@
+.shared-component-best{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    width: 100%;
+    margin-left:25px;
+    margin-bottom: 15px;
+    .nombre{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .textname{
+            margin-left: 50px;
+        }
+    }
+    .moneda{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 75px;
+        .money{
+            margin-left: 10px;
+        }
+    }
+    p{
+        font-size: 25px;
+        font-family: 'Montserrat', sans-serif;
+    }
+}

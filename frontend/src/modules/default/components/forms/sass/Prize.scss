@@ -1,0 +1,60 @@
+.app-component-prize{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 10px;
+    .prize{
+        font-family: 'Rubik', sans-serif;
+        font-size: 24px;
+        margin-right: 400px;
+    }
+    .app-component-lap{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        .app-component-image{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            height: 100px;
+            border-radius: 100px;
+            .app-component-date{
+                font-family: 'Rubik', sans-serif;
+                font-size: 20px;
+                margin-top: 75px;
+            }
+            
+        }
+        .app-component-name{
+            font-family: 'Rubik', sans-serif;
+            margin-top: 25px;
+        }
+        .app-component-name2{
+            font-family: 'Rubik', sans-serif;
+            color: gray;
+            margin-top: 25px;
+        }
+        .app-component-partner{
+            display: flex;
+            width: 90%;
+            padding: 10px;
+            border-radius: 10px;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Rubik', sans-serif;
+            color: #FFFFFF;
+            background-color: #3A7B99;
+            margin-top: 25px;
+            .app-component-name3{
+                font-family:'Montserrat', sans-serif;
+                font-size: 25px;
+            }
+            .app-component-name4{
+                font-size: 12px;
+            }
+        }
+    }
+}
