@@ -3,8 +3,7 @@ import { ResourceNotFoundException } from '../domain/exceptions/resource-not-fou
 
 const dynamoDb = new DynamoDB.DocumentClient();
 
-export const retriveSubjectCollaborators = async (params: any, ident: any) => {
-
+export const retrieveSubjectCollaborators = async (params: any, ident: any) => {
     const subject = await dynamoDb.query({
         TableName: process.env.DB_SUBJECTS_COLLABORATORS,
         KeyConditionExpression: 'subjectId = :subjectId',

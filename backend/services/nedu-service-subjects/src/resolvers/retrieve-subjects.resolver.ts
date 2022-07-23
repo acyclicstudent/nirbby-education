@@ -11,20 +11,22 @@ const INDEXES = {
 }
 
 const EXPRESSIONS = {
-    DATE: 'year = :scope',
-    CATEGORY: 'category = :scope',
-    INSTITUTION: 'institution = :scope',
+    DATE: '#scope = :scope',
+    CATEGORY: '#scope = :scope',
+    INSTITUTION: '#scope = :scope',
 }
 
 export const retrieveSubjects = async (args: any, identity: any) => {
     const subjectResults = await db.query({
         TableName: process.env.SUBJECTS_TABLE,
-        KeyConditionExpression: EXPRESSIONS[args.type], 
+        KeyConditionExpression: EXPRESSIONS[args.type],
         ExpressionAttributeNames: {
+            '#scope': args.type.toLowerCase()
+        },
+        ExpressionAttributeValues: {
             ':scope': args.scope 
         },
         IndexName: INDEXES[args.type]
-
     }).promise();
     if (!subjectResults) throw new ResourceNotFoundException('No se encontró la solicitud')
 

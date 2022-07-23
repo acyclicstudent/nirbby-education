@@ -8,10 +8,10 @@ import HomeStudent from "./routes/HomeStudent";
 
 
 export default function DefaultRouter() {
-    const [state, authDispatchers] = useAuth('default');
-    
+    //const [state, authDispatchers] = useAuth('default');
+    const [state, authDispatchers] = [{isAuth: true}, {}]
     return (
-        <AuthProvider value={authDispatchers}>
+        <AuthProvider value={authDispatchers as any}>
             <Switch>
                 {
                     state.isAuth ? (
@@ -22,7 +22,7 @@ export default function DefaultRouter() {
                                 component={HomeStudent}
                                 render={() => <Auth type="default" AuthForm={AuthForm} />}
                             />
-                            <Route path="/app/rewards" component={Rewards} />
+                            <Route path="/app/afiliates" component={Rewards} />
                         </>
                     ) : (
                         <>
@@ -31,6 +31,7 @@ export default function DefaultRouter() {
                                 path="/app"
                                 render={() => <Auth type="default" AuthForm={AuthForm} />}
                             />
+                            <Route path="/app/afiliates" component={HomeParents} />
                         </>
                     )
                 }
