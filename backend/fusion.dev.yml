@@ -4,3 +4,4 @@ Project:
   Stage: dev
   AWSProfile: nirbby
   DeploymentBucket: nedu-deployment-bucket
+  API: nedu-api.yml

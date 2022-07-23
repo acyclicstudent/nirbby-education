@@ -11,9 +11,11 @@ Parameters:
     Description: 'The stage of the application.'
   Domain:
     Type: String
+    Default: 'education.nirbby.com'
     Description: 'Application Domain'
   WEBCertificate:
     Type: String
+    Default: 'arn:aws:acm:us-east-1:591868339476:certificate/8a6d6a6d-a265-4a45-ab40-d8a0a4754e12'
     Description: 'Certificate ARN'
 
 Resources:
@@ -88,4 +90,4 @@ Outputs:
   WEBCNAME:
     Value: !GetAtt WEBDistribution.DomainName
     Export: 
-      Name: !Sub '${project}-web-domain-${stage}'
+      Name: !Sub '${Project}-web-domain-${Stage}'
