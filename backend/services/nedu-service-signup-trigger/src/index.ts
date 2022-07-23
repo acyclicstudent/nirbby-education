@@ -50,7 +50,7 @@ const emailExists = async (email: string) => {
     try {
         const result = await db.query({
             TableName: process.env.USERS_TABLE,
-            IndexName: 'email-index',
+            IndexName: 'gsi-email',
             KeyConditionExpression: 'email = :email',
             ExpressionAttributeValues: {
                 ':email': email

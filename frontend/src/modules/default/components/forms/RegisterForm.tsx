@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../../../shared/components/Button";
 import Input from "../../../shared/components/Input";
 import "./sass/RegisterForm.scss"
+import Swal from 'sweetalert2';
+import { AuthContext } from "../../../auth";
+import { signUp } from "../../../auth/controllers/auth.controller";
 
 export interface RegisterProps {
     toggleForm: () => void;
@@ -9,19 +12,46 @@ export interface RegisterProps {
 
 
 export default function Register(props: RegisterProps) {
+    const authContext = useContext(AuthContext);
     const [data, setData] = useState({
         name: "",
         email: "",
         password: "",
     });
-
-    
     
     const onChange = (event:any) => {
         const { name, value } = event.target;
         setData({
             ...data, [name]: value
-        })
+        });
+    }
+
+    const register = async () => {
+        try {
+            // Signup
+            const result = await signUp(data);
+            console.log('Signup result: ', result);
+
+            // Show message.
+            await Swal.fire({
+                icon: 'success',
+                title: 'Se creó la cuenta exitosamente.',
+                heightAuto: false,
+            });
+
+            // Auto Login
+            await authContext.signIn({
+                email: data.email,
+                password: data.password
+            })
+        } catch (err) {
+            Swal.fire({
+                icon: 'error',
+                title: 'No se pudo crear la cuenta',
+                heightAuto: false,
+                text: (err as Error).message
+            });
+        }
     }
 
     return (
@@ -33,7 +63,7 @@ export default function Register(props: RegisterProps) {
                     placeholder="Nombre"
                     value={data.name}
                     onChange={onChange} 
-                    name="nombre"           
+                    name="name"           
                 />
             </div>
             <div className="register-input">
@@ -55,7 +85,10 @@ export default function Register(props: RegisterProps) {
                 />
             </div>
             <div className="register-button">
-                <Button text="Crear Cuenta"/>
+                <Button 
+                    text="Crear Cuenta"  
+                    onClick={register}
+                />
             </div>
             <div className="login">
                 <button className="underlined-button" onClick={props.toggleForm}>
