@@ -40,6 +40,8 @@ Resources:
           AttributeType: S
         - AttributeName: parent
           AttributeType: S
+        - AttributeName: institution
+          AttributeType: S
       KeySchema:
         - AttributeName: id
           KeyType: HASH
@@ -93,10 +95,19 @@ Resources:
       AttributeDefinitions:
         - AttributeName: id
           AttributeType: S
+        - AttributeName: email
+          AttributeType: S
       KeySchema:
         - AttributeName: id
           KeyType: HASH
       BillingMode: PAY_PER_REQUEST
+      GlobalSecondaryIndexes:
+        - IndexName: gsi-email
+          KeySchema:
+            - AttributeName: email
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
       Tags:
         - Key: project
           Value: !Ref Project
@@ -135,8 +146,6 @@ Resources:
           AttributeType: N
         - AttributeName: institution
           AttributeType: S
-        - AttributeName: certification
-          AttributeType: S
         - AttributeName: year
           AttributeType: N
       KeySchema:
@@ -162,7 +171,7 @@ Resources:
             ProjectionType: ALL
         - IndexName: gsi-institution
           KeySchema:
-            - AttributeName: ìnstitution
+            - AttributeName: institution
               KeyType: HASH
             - AttributeName: creationDate
               KeyType: RANGE
@@ -182,8 +191,6 @@ Resources:
           AttributeType: S
         - AttributeName: collaborator
           AttributeType: S
-        - AttributeName: lastCollabDate
-          AttributeType: N
       KeySchema:
         - AttributeName: subjectId
           KeyType: HASH

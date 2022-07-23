@@ -12,13 +12,13 @@ Parameters:
 
 Resources:
   # Cognito Lambda PreSignup Trigger
-  # AuthPreSignUpTriggerPermission:
-  #   Type: AWS::Lambda::Permission
-  #   Properties:
-  #     SourceArn: !GetAtt UserPool.Arn
-  #     FunctionName: !Sub "${Project}-service-functioname-${Stage}"
-  #     Principal: cognito-idp.amazonaws.com
-  #     Action: lambda:invokeFunction
+  AuthPreSignUpTriggerPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      SourceArn: !GetAtt UserPool.Arn
+      FunctionName: !Sub "${Project}-service-signup-trigger-${Stage}"
+      Principal: cognito-idp.amazonaws.com
+      Action: lambda:invokeFunction
   
   # User Pool
   UserPool:
@@ -36,9 +36,9 @@ Resources:
           RequireUppercase: true
 
       # Triggers.
-      # LambdaConfig:
-      #   PreSignUp:
-      #     Fn::ImportValue: !Sub "${Project}-service-functionanme-${Stage}"
+      LambdaConfig:
+        PreSignUp:
+          Fn::ImportValue: !Sub "${Project}-service-signup-trigger-${Stage}"
       
       # Sign in config.
       AutoVerifiedAttributes:

@@ -1,23 +1,19 @@
 import { Auth } from "aws-amplify";
 import { Credentials } from "../models/credentials.model";
 import { NewUser } from "../models/new-user.model";
-import uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 export const signUp = async (newUser: NewUser) => {
-    try {
-        await Auth.signUp({
-            username: uuid.v4(),
-            password: newUser.password,
-            attributes: {
-                name: newUser.name,
-                email: newUser.email
-            },
-        });
+    await Auth.signUp({
+        username: uuid(),
+        password: newUser.password,
+        attributes: {
+            name: newUser.name,
+            email: newUser.email
+        },
+    });
 
-        return {success: true};
-    } catch (error) {
-        return { success: false, error: error as Error };
-    }
+    return {success: true};
 }
 
 export const confirmSignUp = async (usernameOrEmail: string, code: string) => {

@@ -20,14 +20,31 @@
             .logo-container {
                 font-family: 'Pacifico', cursive;
                 font-size: 35px;
-                color: white;
+                color: #fff;
+                display: flex;
+                align-items: flex-end;
+
+                .type {
+                    font-size: 20px;
+                    margin-left: 7px;
+                    margin-bottom: 0px;
+                    font-family: 'Montserrat', sans-serif;
+                }
             }
             
             .description {
                 color: white;
                 position: absolute;
                 bottom: 45px;
-                
+                padding: 10px;
+                .description1{
+                    font-family: 'Rubik', sans-serif;   
+                    font-size: 40px;
+                }
+                .text1{
+                    font-family: 'Montserrat', sans-serif;   
+                    font-size: 15px;
+                }
                 hr {
                     height: 3px;
                     width: 33.5%;

@@ -35,9 +35,9 @@ export default function Auth(props: AuthProps) {
                         }
                     </div>
                     <div className="description">
-                        <h1>{AUTH_TITLES[props.type]}</h1>
+                        <p className="description1">{AUTH_TITLES[props.type]}</p>
                         <hr />
-                        <p>{AUTH_TEXTS[props.type]}</p>
+                        <p className="text1">{AUTH_TEXTS[props.type]}</p>
                     </div>
                 </div>
             </div>

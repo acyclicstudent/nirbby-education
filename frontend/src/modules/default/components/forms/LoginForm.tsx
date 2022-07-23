@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../auth";
 import Button from "../../../shared/components/Button";
 import Input from "../../../shared/components/Input";
+import Swal from 'sweetalert2';
 import "./sass/LoginForm.scss"
 
 export interface LoginProps {
@@ -8,6 +10,7 @@ export interface LoginProps {
 }
 
 export default function LoginForm(props: LoginProps){
+    const authContext = useContext(AuthContext);
 
     const [data, setData] = useState({
         email: "",
@@ -21,12 +24,28 @@ export default function LoginForm(props: LoginProps){
         })
     }
 
+    const login = async () => {
+        try {
+            await authContext.signIn({
+                email: data.email,
+                password: data.password
+            })
+        } catch (err) {
+            Swal.fire({
+                icon: 'error',
+                title: 'No se pudo iniciar la sesión',
+                heightAuto: false,
+                text: (err as Error).message
+            });
+        }
+    }
+
     return(
         <div className="components-forms-login">
             {/*Aqui va el boton que cambia uno y otro*/}
 
             {/* Todo esto se debe hacer un nuevo componente y aplicar un nuevo if como el que esta en el authform*/}
-            <h1 className="title">Iniciar Sesión</h1>
+            <p className="title">Iniciar Sesión</p>
             
             <div className="login-input">
                 <Input 
@@ -52,7 +71,7 @@ export default function LoginForm(props: LoginProps){
                 </button>
             </div>
             <div className="login-button">
-                <Button text="Iniciar Sesión"/>
+                <Button onClick={login} text="Iniciar Sesión"/>
             </div>
             <div className="register">
                 <button className="underlined-button" onClick={props.toggleForm}>
