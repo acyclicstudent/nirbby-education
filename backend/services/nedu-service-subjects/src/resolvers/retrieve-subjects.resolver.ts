@@ -30,7 +30,7 @@ export const retrieveSubjects = async (args: any, identity: any) => {
             '#scope': ATTRIBUTES[args.type]
         },
         ExpressionAttributeValues: {
-            ':scope': args.scope 
+            ':scope': args.type === 'DATE' ? Number(args.scope) : args.type 
         },
         IndexName: INDEXES[args.type]
     }).promise();
