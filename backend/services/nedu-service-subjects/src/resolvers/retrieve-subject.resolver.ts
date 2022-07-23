@@ -3,7 +3,7 @@ import { ResourceNotFoundException } from '../domain/exceptions/resource-not-fou
 
 const db = new DynamoDB.DocumentClient();
 
-const retrieveSubject =async (args, identity) => {
+export const retrieveSubject =async (args, identity) => {
     const adoptionResult = await db.get({
         TableName: process.env.SUBJECTS_TABLE,
         Key: {
