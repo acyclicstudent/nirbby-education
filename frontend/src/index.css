@@ -7,3 +7,14 @@
 html, body, #root {
   height: 100%;
 }
+
+.underlined-button{
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  text-decoration: underline;
+  border:none;
+}
+.underlined-button:hover{
+  opacity: 0.6;
+  cursor: pointer;
+}

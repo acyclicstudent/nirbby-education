@@ -1,31 +1,37 @@
-.components-forms-register{
+.components-forms-login{
     display: flex;
     flex-direction: column;
     padding-top: 100px;
     text-align: center;
+    
+    button{
+        margin-top: 15px;
+    }
 
     .title {
         font-family: 'Rubik', sans-serif;
         margin-bottom: 20px;
     }
 
-    button{
-        margin-top: 15px;
-    }
-    .register-input{
+    .login-input{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 20px;
+        margin-bottom: 15px;
     }
-    .register-button{
+
+    .login-pass {
+        text-align: center;
+        margin-left: 40%;
+    }
+
+    .login-button{
         display: flex;
         justify-content: center;
-        margin: 10px;
     }
     
-    .login{
-        margin: 15px;
+    .register{
+        padding-left: 10px;
         text-align: center;
     }
 }

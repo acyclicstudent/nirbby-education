@@ -1,6 +1,7 @@
-.components-forms-login{
+.components-forms-password {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding-top: 100px;
     text-align: center;
 
@@ -9,20 +10,25 @@
         margin-bottom: 20px;
     }
 
-    .login-input{
+    .pass-input{
+        align-items: center;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        width: 100%;
         margin-bottom: 15px;
     }
 
-    .login-pass {
+    .pass-text {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 15px;
         text-align: center;
-        margin-left: 40%;
-        margin-bottom: 15px;
+        font-family: 'Rubik', sans-serif;
     }
 
-    .login-button{
+    .pass-button{
         display: flex;
         justify-content: center;
         margin-bottom: 15px;
