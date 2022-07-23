@@ -34,8 +34,8 @@ Resources:
         Variables:
           PROJECT: !Ref Project
           STAGE: !Ref Stage
-          SUBJECTS_TABLE: !Sub "${Project}-db-students-${Stage}"
-          DB_SUBJECTS_COLLABORATORS: !Sub "${Project}-db-students-${Stage}"
+          SUBJECTS_TABLE: !Sub "${Project}-db-subjects-${Stage}"
+          DB_SUBJECTS_COLLABORATORS: !Sub "${Project}-db-subject-collaborators-${Stage}"
       Tags:
         - Key: "project"
           Value: !Ref Project
