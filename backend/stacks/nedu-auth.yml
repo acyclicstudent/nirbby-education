@@ -75,12 +75,24 @@ Resources:
           stage: !Ref Stage
 
   # Group definitions.
-  # GroupAdmins:
-  #   Type: AWS::Cognito::UserPoolGroup
-  #   Properties:
-  #     GroupName: "admins"
-  #     UserPoolId: !Ref UserPool
-  #     Description: 'Group for admins.'
+  InstitutesGroup:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties:
+      GroupName: "institutes"
+      UserPoolId: !Ref UserPool
+      Description: 'Group for institutes.'
+  ParentsGroup:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties:
+      GroupName: "parents"
+      UserPoolId: !Ref UserPool
+      Description: 'Group for parents.'
+  CoachGroup:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties:
+      GroupName: "coaches"
+      UserPoolId: !Ref UserPool
+      Description: 'Group for coaches.'
 
   # Web Client
   WebUserPoolClient:

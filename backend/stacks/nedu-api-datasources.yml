@@ -1,0 +1,109 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Noporverse Graph API DataSources'
+
+Parameters:
+  Project:
+    Type: String
+    Description: 'The name of the project.'
+  Stage:
+    Type: String
+    Default: dev
+    Description: 'The stage of the application.'
+
+Resources:
+  ServiceMeetingsDS:
+    Type: AWS::AppSync::DataSource
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      Name: !Sub "ServiceMeetingsDS_${Stage}"
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn:
+          Fn::ImportValue: !Sub "${Project}-service-meetings-${Stage}"
+      ServiceRoleArn:
+        Fn::ImportValue: !Sub "${Project}-APILambdaInvokeAllRole-${Stage}"
+  ServiceCertificationsDS:
+    Type: AWS::AppSync::DataSource
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      Name: !Sub "ServiceCertificationsDS_${Stage}"
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn:
+          Fn::ImportValue: !Sub "${Project}-service-certifications-${Stage}"
+      ServiceRoleArn:
+        Fn::ImportValue: !Sub "${Project}-APILambdaInvokeAllRole-${Stage}"
+  ServiceCatalogsDS:
+    Type: AWS::AppSync::DataSource
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      Name: !Sub "ServiceCatalogsDS_${Stage}"
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn:
+          Fn::ImportValue: !Sub "${Project}-service-catalogs-${Stage}"
+      ServiceRoleArn:
+        Fn::ImportValue: !Sub "${Project}-APILambdaInvokeAllRole-${Stage}"
+  ServiceCoachesDS:
+    Type: AWS::AppSync::DataSource
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      Name: !Sub "ServiceCoachesDS_${Stage}"
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn:
+          Fn::ImportValue: !Sub "${Project}-service-coaches-${Stage}"
+      ServiceRoleArn:
+        Fn::ImportValue: !Sub "${Project}-APILambdaInvokeAllRole-${Stage}"
+  ServiceContentDS:
+    Type: AWS::AppSync::DataSource
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      Name: !Sub "ServiceContentDS_${Stage}"
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn:
+          Fn::ImportValue: !Sub "${Project}-service-content-${Stage}"
+      ServiceRoleArn:
+        Fn::ImportValue: !Sub "${Project}-APILambdaInvokeAllRole-${Stage}"
+  ServiceRewardsDS:
+    Type: AWS::AppSync::DataSource
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      Name: !Sub "ServiceRewardsDS_${Stage}"
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn:
+          Fn::ImportValue: !Sub "${Project}-service-rewards-${Stage}"
+      ServiceRoleArn:
+        Fn::ImportValue: !Sub "${Project}-APILambdaInvokeAllRole-${Stage}"
+  ServiceStudentsDS:
+    Type: AWS::AppSync::DataSource
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      Name: !Sub "ServiceStudentsDS_${Stage}"
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn:
+          Fn::ImportValue: !Sub "${Project}-service-students-${Stage}"
+      ServiceRoleArn:
+        Fn::ImportValue: !Sub "${Project}-APILambdaInvokeAllRole-${Stage}"
+  ServiceSubjectsDS:
+    Type: AWS::AppSync::DataSource
+    Properties:
+      ApiId:
+        Fn::ImportValue: !Sub "${Project}-api-id-${Stage}"
+      Name: !Sub "ServiceSubjectsDS_${Stage}"
+      Type: AWS_LAMBDA
+      LambdaConfig:
+        LambdaFunctionArn:
+          Fn::ImportValue: !Sub "${Project}-service-subjects-${Stage}"
+      ServiceRoleArn:
+        Fn::ImportValue: !Sub "${Project}-APILambdaInvokeAllRole-${Stage}"
