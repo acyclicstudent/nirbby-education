@@ -1,7 +1,44 @@
-.app-component-reward{
+.app-component-rewards{
     height: 100vh;
     display: flex;
     flex-direction: column; 
     width: 100%;
     align-items: center;
+    .app-content-container{
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        width: 100%;
+        margin-top: 10px;
+        .app-content-container-right{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            flex: 2;
+            margin-top: 10px;
+            .cuadrohonor{
+                font-family: 'Rubik', sans-serif;
+                font-size: 37px;
+                margin-left: 30px;
+            }
+            .app-content-honor{
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                justify-content: left;
+                margin: 20px;
+            }
+        }
+        .app-content-price{
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            align-items: center;
+            box-shadow: 0px 3px 6px #00000070;
+            margin-top: 30px;
+            margin-bottom: 120px;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+    }
 }
