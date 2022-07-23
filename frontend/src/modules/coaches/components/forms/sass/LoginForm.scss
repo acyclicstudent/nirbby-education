@@ -1,11 +1,11 @@
 .components-forms-login{
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 35%;
     text-align: center;
     
     button{
-        margin-top: 15px;
+        margin-top: 40px;
     }
 
     .title {
@@ -17,12 +17,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     .login-pass {
         text-align: center;
         margin-left: 40%;
+        margin-bottom: 20px;
     }
 
     .login-button{

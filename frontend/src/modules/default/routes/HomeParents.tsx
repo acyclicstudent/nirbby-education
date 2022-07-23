@@ -12,14 +12,14 @@ export default function HomeParents() {
                     <div className="progress">
                         <p>Progreso de mis estudiantes</p>
                         <div>
-                            <CircularBar value={89} text={"89"}/>
+                            <CircularBar value={89} text={"89"} width={80} height={80}/>
                             <p></p>
                         </div>
                         <div>
-                            <CircularBar value={45} text={"45"}/>                        
+                            <CircularBar value={45} text={"45"} width={80} height={80}/>                        
                         </div>
                         <div>
-                            <CircularBar value={25} text={"25"}/>
+                            <CircularBar value={25} text={"25"} width={80} height={80}/>
                         </div>
                     </div>
                     <div className="state"></div>
