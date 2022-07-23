@@ -6,6 +6,10 @@ type Query{
     retrieveSubjects(scope: String!, type: SubjectQueryType!): [Subject]
     # Students
     retrieveStudents: [Student]
+    retrieveStudent: String
+    # Coaches
+    retrieveCoach: String
+
 }
 
 type Mutation {

@@ -1,5 +1,6 @@
 import { retrieveStudents } from "./resolvers/retrieve-students.resolver";
 import { registerStudents } from "./resolvers/register-students.resolver";
+import { retrieveStudent } from "./resolvers/retrieve-student.resolver";
 
 export const handler = async (event: any) => {
     return (operations as any)[event.info.parentTypeName][event.info.fieldName](
@@ -13,6 +14,7 @@ const operations = {
         registerStudents
     },
     Query: {
-        retrieveStudents
+        retrieveStudents,
+        retrieveStudent
     }
 }
