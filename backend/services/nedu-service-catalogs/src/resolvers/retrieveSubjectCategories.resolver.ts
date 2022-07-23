@@ -10,10 +10,9 @@ export const retriveSubjectCategories =async (params:any, ident: any) => {
 
         TableName: process.env.DB_CATALOGS,
         KeyConditionExpression: 'catalog = :catalog',
-        ExpressionAttributeNames: {
+        ExpressionAttributeValues: {
             ':catalog': Catalogs.subjects
         }
-        
     }).promise();
 
     if (!subjects.Items) throw new ResourceNotFoundException('No hay materias para este catalogo');
