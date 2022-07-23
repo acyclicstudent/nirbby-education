@@ -6,26 +6,39 @@
 
     .title {
         font-family: 'Rubik', sans-serif;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
+        font-size: 40px;
     }
 
     .login-input{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 20px;
+        margin-top: 25px;
+        input{
+            font-size: 16px;
+            padding-bottom: 20px;
+            padding-top:10px;
+        }
     }
 
     .login-pass {
         text-align: center;
         margin-left: 40%;
         margin-bottom: 20px;
+        margin-top: 10px;
     }
 
     .login-button{
         display: flex;
+        align-items: center;
         justify-content: center;
         margin-bottom: 15px;
+        margin-left: 15%;
+        width: 75%;
+        button{
+            font-size: 25px;
+        }
     }
     
     .register{

@@ -27,7 +27,15 @@
                 color: white;
                 position: absolute;
                 bottom: 45px;
-                
+                padding: 10px;
+                .description1{
+                    font-family: 'Rubik', sans-serif;   
+                    font-size: 40px;
+                }
+                .text1{
+                    font-family: 'Montserrat', sans-serif;   
+                    font-size: 15px;
+                }
                 hr {
                     height: 3px;
                     width: 33.5%;

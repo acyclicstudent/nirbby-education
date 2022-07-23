@@ -26,7 +26,7 @@ export default function Register(props: RegisterProps) {
 
     return (
         <div className="components-forms-register">
-            <h1 className="title">Registrate</h1>
+            <p className="title">Registrate</p>
             <div className="register-input">
                 <Input 
                     type="text"
